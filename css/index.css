@@ -1,0 +1,13 @@
+nav{
+    width: 80%;
+}
+
+aside{
+    width: 20%;
+    height: 850px;
+}
+
+article{
+    width: 80%;
+    position: relative;
+}
