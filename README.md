@@ -1,2 +1,2 @@
 # examen-final
-Página de administracio de prestamos.
+Página de administracion de prestamos.
