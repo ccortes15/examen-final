@@ -9,17 +9,9 @@
             if($query->rowCount()){
                 return true;
             }
-            else
-            {
+            else{
                 return false;
             }
         }
-
-        public function setUser($user)
-        {
-            $query = $this->connect()->prepare('Select * From admins')
-        }
     }
-
-
 ?>

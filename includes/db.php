@@ -1,16 +1,26 @@
 <?php
-    $servername = "localhost";
-    $username = "id9864228_ra420";
-    $password = "12345678";
-    $dbname = "id9864228_bd_ra";
+class Database{
+    private $servername;
+    private $username;
+    private $password;
+    private $dbname;
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
+    public function __construct(){
+        $this->servername   = 'localhost';
+        $this->username     = 'id9864228_ra420';
+        $this->password     = '12345678';
+        $this->dbname       = 'id9864228_bd_ra'
+    }
+
+    function connect(){
+        $conn = new mysqli($this->servername,$this->username,$this->password,$this->dbname);
         
-        // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        
-    echo 'Connected to: ' . $dbname;
+        else{
+            return $conn;
+        }
+    }
+}       
 ?>
