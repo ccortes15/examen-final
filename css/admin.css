@@ -17,3 +17,26 @@ section{
 article{
     background-color: lightgrey;
 }
+
+.pagos{
+    width: 48%;
+    height: 19%;
+    float: left;
+}
+
+.cobros{
+    width: 48%;
+    height: 19%;
+    float: right;
+}
+
+th{
+    border-bottom: 2px solid gray;
+    height: 30px;
+    width: 33%;
+}
+
+/* tr{
+    border-bottom: 3px groove green;
+    border-top: 3px groove green;
+} */
