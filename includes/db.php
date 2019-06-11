@@ -9,7 +9,7 @@ class Database{
         $this->servername   = 'localhost';
         $this->username     = 'id9864228_ra420';
         $this->password     = '12345678';
-        $this->dbname       = 'id9864228_bd_ra'
+        $this->dbname       = 'id9864228_bd_ra';
     }
 
     function connect(){
