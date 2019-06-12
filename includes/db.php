@@ -5,11 +5,11 @@ class Database{
     private $password;
     private $dbname;
 
-    public function __construct(){
+    public function _construct(){
         $this->servername   = 'localhost';
-        $this->username     = 'id9864228_ra420';
-        $this->password     = '12345678';
-        $this->dbname       = 'id9864228_bd_ra';
+        $this->username     = ' 	id9909723_ra420';
+        $this->password     = 'ra420';
+        $this->dbname       = 'id9909723_login';
     }
 
     function connect(){
@@ -19,7 +19,7 @@ class Database{
             die("Connection failed: " . $conn->connect_error);
         }
         else{
-            return $conn;
+            echo ("Connected.");
         }
     }
 }       
