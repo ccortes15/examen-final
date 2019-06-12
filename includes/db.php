@@ -5,11 +5,11 @@ class Database{
     private $password;
     private $dbname;
 
-    public function _construct(){
-        $this->servername   = 'localhost';
-        $this->username     = ' 	id9909723_ra420';
-        $this->password     = 'ra420';
-        $this->dbname       = 'id9909723_login';
+    public function __construct(){
+        $this->servername   = 'bsjoc29n2gfuxyr4bn8l-mysql.services.clever-cloud.com';
+        $this->username     = 'uniothr6evvejch8';
+        $this->password     = 'gUU0enek3xPAPA8wu4gW';
+        $this->dbname       = 'bsjoc29n2gfuxyr4bn8l';
     }
 
     function connect(){
