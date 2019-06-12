@@ -1,5 +1,5 @@
 <?php
-    include_once 'includes/db.php';
+    include_once '/includes/db.php';
 
     session_start();
 
@@ -29,6 +29,6 @@
         $db = new Database();
         $query = $db->connect()->prepare('SELECT * FROM usuario WHERE telefono = :tel AND contraseña = :pass');
         $query->execute(['tel' => $telefono, 'pass' => $password]);
-
+        echo $telefono . $password;
     }
 ?>
