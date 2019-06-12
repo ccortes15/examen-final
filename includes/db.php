@@ -7,7 +7,7 @@ class Database{
 
     public function _construct(){
         $this->servername   = 'localhost';
-        $this->username     = ' 	id9909723_ra420';
+        $this->username     = 'id9909723_ra420';
         $this->password     = 'ra420';
         $this->dbname       = 'id9909723_login';
     }
