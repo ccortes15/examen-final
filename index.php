@@ -29,6 +29,28 @@
         $db = new Database();
         $query = $db->connect()->prepare('SELECT * FROM usuario WHERE telefono = :tel AND contraseña = :pass');
         $query->execute(['tel' => $telefono, 'pass' => $password]);
-        echo $telefono . $password;
+        // echo $telefono . $password;
+
+        $row = $query->fetch(PDO::FETCH_NUM);
+
+        if($row == true)
+        {
+            $rol = $row[3];
+            $_SESSION['rol'] = $rol;
+            switch($_SESSION['rol']){
+                case 1:
+                    header('location: views/admin.php');
+                break;
+    
+                case 2:
+                    header('location: views/register.html');
+                break;
+    
+                default;
+            }
+        }else
+        {
+            echo "Contraseña o usuario incorrecto";
+        }
     }
 ?>
