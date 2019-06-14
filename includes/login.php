@@ -1,6 +1,7 @@
 <?php
     include("db.php");
     session_start();
+    error_reporting(0);
 
     $usuario = $_POST['user'];
     $contraseña = $_POST['pass'];
@@ -10,12 +11,12 @@
     $user_log = mysqli_fetch_array($consulta);
     
     if(count($user_log) > 0){
-        $_SESSION['username'] = $usuario;
+        $_SESSION['id'] = $user_log[0];
 
         if($user_log[4] == 1){
-            header("location: ../php/admin.php");
+            header("location: ../views/admin.html");
         }else{
-            header("location: ../php/user.php");
+            header("location: ../views/register.html");
         }
     }
     else{

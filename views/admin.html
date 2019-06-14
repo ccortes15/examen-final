@@ -23,7 +23,7 @@
                 <a class="nav-link text-white" href="#!">Configuración</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#!">Cerrar sesión</a>
+                <a class="nav-link text-white" href="../includes/logout.php">Cerrar sesión</a>
             </li>
         </ul>
     </nav>
@@ -55,7 +55,7 @@
                 <div class="modal fade" id="modalForm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                        <div class="modal-content">
+                        <form action="../includes/insert_user.php" method="POST" class="modal-content">
                             <div class="modal-header text-center">
                                 <h4 class="modal-title w-100 font-weight-bold">Registrar Cliente</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -66,39 +66,39 @@
                                 <div class="md-form mb-5">
                                     <i class="fas fa-user prefix grey-text"></i>
                                     <label data-error="wrong" data-success="right" for="nameUser">Nombre de Cliente</label>
-                                    <input type="text" id="nameUser" class="form-control validate">
+                                    <input type="text" name="nameUser" class="form-control validate">
                                 </div>
 
                                 <div class="md-form mb-5">
                                     <i class="fas fa-envelope prefix grey-text"></i>
                                     <label data-error="wrong" data-success="right" for="telUser">Teléfono</label>
-                                    <input type="tel" id="telUser" class="form-control validate">
+                                    <input type="tel" name="telUser" maxlength="10" class="form-control validate">
                                 </div>
 
                                 <div class="md-form mb-5">
                                     <i class="fas fa-tag prefix grey-text"></i>
                                     <label data-error="wrong" data-success="right" for="mailUser">Correro Electrónico</label>
-                                    <input type="email" id="mailUser" class="form-control validate">
+                                    <input type="email" name="mailUser" class="form-control validate">
                                 </div>
 
                                 <div class="md-form">
                                     <i class="fas fa-pencil prefix grey-text"></i>
                                     <label data-error="wrong" data-success="right" for="passUser">Contraseña</label>
-                                    <input type="password" id="passUser" class="form-control validate">
+                                    <input type="password" name="passUser" class="form-control validate">
                                 </div>
 
                             </div>
                             <div class="modal-footer d-flex justify-content-center">
-                                <button class="btn btn-unique">Registrar<i class="fas fa-paper-plane-o ml-1"></i></button>
+                                <button class="btn btn-unique" type="submit">Registrar<i class="fas fa-paper-plane-o ml-1"></i></button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
 
                 <div class="modal fade" id="modalForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                        <div class="modal-content">
+                        <form action="../includes/insert_cobro.php" method="POST"  class="modal-content">
                             <div class="modal-header text-center">
                                 <h4 class="modal-title w-100 font-weight-bold">Cobro</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -109,31 +109,28 @@
                                 <div class="md-form mb-5">
                                     <i class="fas fa-user prefix grey-text"></i>
                                     <label data-error="wrong" data-success="right" for="nameUser">Cantidad</label>
-                                    <input type="number" id="nameUser" class="form-control validate">
+                                    <input type="number" name="cantCobro" placeholder="Ingrese cantidad de cobro"
+                                        class="form-control validate">
                                 </div>
 
                                 <div class="md-form mb-5">
                                     <i class="fas fa-envelope prefix grey-text"></i>
                                     <label data-error="wrong" data-success="right" for="selUser">Cliente</label>
-                                    <select id="selUser" class="custom-select">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
+                                    <input type="tel" name="telCobro" placeholder="Ingrese telefono de cliente" 
+                                        class="form-control validate" maxlength="10">
                                 </div>
 
                                 <div class="md-form mb-5 custom-control custom-switch">
-                                    <input type="checkbox" class="custom-control-input" id="switch1">
+                                    <input type="checkbox" class="custom-control-input" name="allUsers" id="switch1">
                                     <label class="custom-control-label" for="switch1">Añadir a todos los
                                         clientes</label>
                                 </div>
                             </div>
                             <div class="modal-footer d-flex justify-content-center">
-                                <button class="btn btn-unique">Añadir<i
+                                <button class="btn btn-unique" type="submit">Añadir<i
                                         class="fas fa-paper-plane-o ml-1"></i></button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
 
