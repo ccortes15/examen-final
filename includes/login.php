@@ -10,14 +10,16 @@
     $user_log = mysqli_fetch_array($consulta);
     
     if(count($user_log) > 0){
+        $_SESSION['username'] = $usuario;
+
         if($user_log[4] == 1){
-            header("location: ../views/admin.html");
+            header("location: ../php/admin.php");
         }else{
-            header("location: ../views/register.html");
+            header("location: ../php/user.php");
         }
     }
     else{
-        echo "Usuario no registrado";
+        echo "Usuario no registrado <br>";
         echo("<button onclick=\"location.href='../index.html'\">Regresar</button>");
     };
 ?>
