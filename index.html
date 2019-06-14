@@ -15,15 +15,15 @@
     <div class="card-body">
       <h5 class="card-title text-center">Iniciar sesión</h5>
 
-      <form class="form-signin" action="index.php" method="POST">
+      <form class="form-signin" action="includes/login.php" method="POST">
         <div class="form-label-group">
           <label for="inputTel">Teléfono</label>
-          <input type="tel" id="inputTel" name="tel" class="form-control" required autofocus>
+          <input type="tel" id="inputTel" name="user" class="form-control" placeholder="Escribir teléfono" required autofocus>
         </div>
 
         <div class="form-label-group">
           <label for="inputPassword">Contraseña</label>
-          <input type="password" id="inputPassword" name="pass" class="form-control" required>
+          <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Escribir contraseña" required>
         </div>
 
         <button class="btn btn-lg btn-primary btn-block text-uppercase mt-3" type="submit">Entrar</button>
