@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    $nombre = $_SESSION['nombre'];
+    $correo = $_SESSION['correo'];
+    $telefono = $_SESSION['telefono'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,9 +46,9 @@
             <hr>
     
             <div class="w-100 mx-auto text-center">
-                <p class="text-white">Adrian Cortés</p>
-                <p class="text-white">312-270-52-69</p>
-                <p class="text-white">ccortes15@ucol.mx</p>
+                <p class="text-white"><?php echo $nombre; ?></p>
+                <p class="text-white"><?php echo $telefono; ?></p>
+                <p class="text-white"><?php echo $correo; ?></p>
             </div>
     
             <hr>

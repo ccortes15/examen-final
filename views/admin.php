@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    $nombre = $_SESSION['nombre'];
+    $correo = $_SESSION['correo'];
+    $telefono = $_SESSION['telefono'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,9 +44,9 @@
         <hr>
 
         <div class="w-100 mx-auto text-center">
-            <p class="text-white">Adrian Cortés</p>
-            <p class="text-white">312-270-52-69</p>
-            <p class="text-white">ccortes15@ucol.mx</p>
+            <p class="text-white"><?php echo $nombre; ?></p>
+            <p class="text-white"><?php echo $telefono; ?></p>
+            <p class="text-white"><?php echo $correo; ?></p>
         </div>
 
         <hr>
@@ -177,7 +185,7 @@
             </div>
         </article>
 
-        <article class="container-fluid w-100 mt-2 p-4">
+        <article class="container-fluid w-100 mt-3 p-4">
             <div class="row">
                 <div class="col-md-6 d-flex justify-content-center">
                     <div class="mx-auto">
@@ -197,8 +205,74 @@
             </div>
         </article>
 
-        <article class="mt-2 p-4">
-            <button type="button" class="w-75 mx-auto btn btn-outline-info btn-lg btn-block">Consultar cliente</button>
+        <article class="mt-3 p-4">
+            <div class=" w-50 mx-auto d-flex justify-content-between">
+                <div class="modal fade" id="modalForm4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <form action="../includes/consult_user.php" method="GET" class="modal-content">
+                            <div class="modal-header text-center">
+                                <h4 class="modal-title w-100 font-weight-bold">Consultar Cliente</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body mx-3">
+                                <div class="md-form mb-5">
+                                    <i class="fas fa-envelope prefix grey-text"></i>
+                                    <label data-error="wrong" data-success="right" for="payUser">Cliente</label>
+                                    <input type="tel" id="payUser" name="telUser" maxlength="10"
+                                        placeholder="Ingrese telefono de usuario" class="form-control validate">
+                                </div>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-center">
+                                <button class="btn btn-unique" type="submit">Consultar<i
+                                        class="fas fa-paper-plane-o ml-1"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modalForm5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <form action="../includes/consult_user.php" method="POST" class="modal-content">
+                            <div class="modal-header text-center">
+                                <h4 class="modal-title w-100 font-weight-bold">Consultar Cliente</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body mx-3">
+                                <div class="md-form mb-5">
+                                    <i class="fas fa-user prefix grey-text"></i>
+                                    <label data-error="wrong" data-success="right" for="startDate">Fecha de
+                                        inicio</label>
+                                    <input type="date" id="startDate" name="startDate"
+                                        placeholder="Ingrese fecha de inicio" class="form-control validate">
+                                </div>
+
+                                <div class="md-form mb-5">
+                                    <i class="fas fa-user prefix grey-text"></i>
+                                    <label data-error="wrong" data-success="right" for="endDate">Fecha de cierre</label>
+                                    <input type="date" id="endDate" name="endDate" placeholder="Ingrese fecha de cierre"
+                                        class="form-control validate">
+                                </div>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-center">
+                                <button class="btn btn-unique" type="submit">Consultar<i
+                                        class="fas fa-paper-plane-o ml-1"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-outline-info btn-lg" data-toggle="modal"
+                    data-target="#modalForm4">Consultar por cliente</button>
+
+                <button type="button" class="btn btn-outline-info btn-lg" data-toggle="modal"
+                    data-target="#modalForm5">Consultar por fecha</button>
+            </div>
         </article>
     </section>
 

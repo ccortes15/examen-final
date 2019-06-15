@@ -8,15 +8,18 @@
 
     $query = "SELECT * FROM usuario WHERE telefono = '$usuario' AND contraseña = '$contraseña'";
     $consulta = mysqli_query($conn,$query) or die(mysqli_error($conn));
-    $user_log = mysqli_fetch_array($consulta);
-    
-    if(count($user_log) > 0){
-        $_SESSION['id'] = $user_log[0];
 
-        if($user_log[4] == 1){
-            header("location: ../views/admin.html");
+    if(mysqli_num_rows($consulta) > 0){
+        while($row = mysqli_fetch_assoc($consulta)){
+                $_SESSION['nombre'] = $row['nombre'];
+                $_SESSION['telefono'] = $row['telefono'];
+                $_SESSION['correo'] = $row['correo'];
+                $tipo = $row['id_rol'];
+            }
+        if($tipo == 1){
+            header("location: ../views/admin.php");
         }else{
-            header("location: ../views/register.html");
+            header("location: ../views/register.php");
         }
     }
     else{
