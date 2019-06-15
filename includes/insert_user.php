@@ -13,5 +13,5 @@
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
 
-    echo("<button onclick=\"location.href='../views/admin.html'\">Regresar</button>");
+    echo("<button onclick=\"location.href='../views/admin.php'\">Regresar</button>");
 ?>

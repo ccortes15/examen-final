@@ -21,13 +21,13 @@
             $sql = "UPDATE cobro SET cantidad = (cantidad + '$cantidad'), fecha = '$fecha' where id_usuario = '$id[0]'";
             $consulta = mysqli_query($conn,$sql) or die(mysqli_error($conn));
             echo "Cobro actualizado";
-            echo("<button onclick=\"location.href='../views/admin.html'\">Regresar</button>");
+            echo("<button onclick=\"location.href='../views/admin.php'\">Regresar</button>");
         }else{
             $sql = "INSERT INTO cobro(id_cobro,cantidad,fecha,id_usuario) 
             values (null, '$cantidad', '$fecha', '$id[0]')";
             $consulta = mysqli_query($conn,$sql) or die(mysqli_error($conn));
             echo "Cobro agregado.";
-            echo("<button onclick=\"location.href='../views/admin.html'\">Regresar</button>");
+            echo("<button onclick=\"location.href='../views/admin.php'\">Regresar</button>");
         }
 
     }else{
@@ -50,6 +50,6 @@
         }
 
         echo "Cobro actualizado";
-        echo("<button onclick=\"location.href='../views/admin.html'\">Regresar</button>");
+        echo("<button onclick=\"location.href='../views/admin.php'\">Regresar</button>");
     }
 ?>

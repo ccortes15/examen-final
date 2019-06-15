@@ -1,6 +1,8 @@
 <?php
     include('../includes/db.php');
     session_start();
+    error_reporting(0);
+
     $nombre = $_SESSION['nombre'];
     $correo = $_SESSION['correo'];
     $telefono = $_SESSION['telefono'];
@@ -289,10 +291,6 @@
             </div>
         </article>
     </section>
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

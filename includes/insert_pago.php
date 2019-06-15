@@ -16,10 +16,10 @@
         $sql2 = "INSERT INTO pago(id_pago,cantidad,fecha,id_usuario) values (null, '$cantidad', '$fecha', '$contenido[3]')";
         $consulta2 = mysqli_query($conn,$sql2) or die(mysqli_error($conn));
         echo "Pago agregado.";
-        echo("<button onclick=\"location.href='../views/admin.html'\">Regresar</button>");
+        echo("<button onclick=\"location.href='../views/admin.php'\">Regresar</button>");
     }
     else{
         echo "Usuario no encontrado";
-        echo("<button onclick=\"location.href='../views/admin.html'\">Regresar</button>");
+        echo("<button onclick=\"location.href='../views/admin.php'\">Regresar</button>");
     }
 ?>
