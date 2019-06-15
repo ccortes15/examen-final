@@ -1,9 +1,23 @@
 <?php
+    include('../includes/db.php');
     session_start();
     $nombre = $_SESSION['nombre'];
     $correo = $_SESSION['correo'];
     $telefono = $_SESSION['telefono'];
+    $cantidad_ingr = 0;
+    $cantidad_pend = 0;
 
+    $sql_pend = "SELECT cantidad as cant_pend FROM cobro";
+    $sql_ingr = "SELECT cantidad as cant_ingr FROM pago";
+    $consulta_ingr = mysqli_query($conn, $sql_ingr) or die(mysqli_error($conn));
+    $consulta_pend = mysqli_query($conn, $sql_pend) or die(mysqli_error($conn));
+
+    while($row_ingr = mysqli_fetch_assoc($consulta_ingr)){
+        $cantidad_ingr = $cantidad_ingr + $row_ingr['cant_ingr'];
+    }
+    while($row_pend = mysqli_fetch_assoc($consulta_pend)){
+        $cantidad_pend = $cantidad_pend + $row_pend['cant_pend'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -189,17 +203,17 @@
             <div class="row">
                 <div class="col-md-6 d-flex justify-content-center">
                     <div class="mx-auto">
-                        <h2 class="display-4 text-center text-break">Total de clientes</h2>
+                        <h2 class="display-4 text-center text-break">Ingresos</h2>
                         <br>
-                        <h2 id="total_clientes" class="display-4 text-center text-break">150</h2>
+                        <h2 id="total_clientes" class="display-4 text-center text-break"><?php echo $cantidad_ingr ?></h2>
                     </div>
                 </div>
 
                 <div class="col-md-6 d-flex justify-content-center">
                     <div class="mx-auto">
-                        <h2 class="display-4 text-center text-break">Ingresos del mes</h2>
+                        <h2 class="display-4 text-center text-break">Pendiente</h2>
                         <br>
-                        <h2 id="total_clientes" class="display-4 text-center text-break">150</h2>
+                        <h2 id="total_clientes" class="display-4 text-center text-break"><?php echo $cantidad_pend ?></h2>
                     </div>
                 </div>
             </div>
