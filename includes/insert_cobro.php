@@ -23,23 +23,33 @@
             echo "Cobro actualizado";
             echo("<button onclick=\"location.href='../views/admin.html'\">Regresar</button>");
         }else{
-            $sql = "INSERT INTO bsjoc29n2gfuxyr4bn8l.cobro (id_cobro,cantidad,fecha,id_usuario) 
-            values (null, '$cantidad', '$fecha', '$id')";
+            $sql = "INSERT INTO cobro(id_cobro,cantidad,fecha,id_usuario) 
+            values (null, '$cantidad', '$fecha', '$id[0]')";
+            $consulta = mysqli_query($conn,$sql) or die(mysqli_error($conn));
             echo "Cobro agregado.";
             echo("<button onclick=\"location.href='../views/admin.html'\">Regresar</button>");
         }
 
     }else{
-        echo $cantidad.$nombre.$checkb;
-    }
-
-    /*$sql = "INSERT INTO bsjoc29n2gfuxyr4bn8l.usuario (id,nombre,telefono,correo,id_rol,contraseña) 
-            values (null, '$nombre', '$telefono', '$correo', 2, '$contraseña')";
-        if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        $filas = "SELECT id FROM usuario WHERE id_rol = 2";
+        $consulta = mysqli_query($conn,$filas);
+        $all_id = array();
+        
+        while($row = mysqli_fetch_assoc($consulta))
+        {
+            $all_id[] = $row;
         }
 
-    echo("<button onclick=\"location.href='../views/admin.html'\">Back to Home</button>");*/
+         foreach ($all_id as $row) 
+        { 
+            foreach ($row as $element)
+            {
+                $sql = "UPDATE cobro SET cantidad = (cantidad + '$cantidad'), fecha = '$fecha' where id_usuario = '$element'";
+                $consulta = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+            }
+        }
+
+        echo "Cobro actualizado";
+        echo("<button onclick=\"location.href='../views/admin.html'\">Regresar</button>");
+    }
 ?>
